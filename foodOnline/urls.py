@@ -16,16 +16,31 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views
+from marketplace import views as MarketplaceViews
+
+
+handler404 = 'foodOnline.views.custom_404'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
 	
-    path('account/', include('accounts.urls'))
+    path('account/', include('accounts.urls')),
+    path('menu-builder/', include('menu.urls')),
+    path('marketplace/', include('marketplace.urls')),
+	
+    # CART
+    path('cart/', MarketplaceViews.cart, name='cart'),
+    path('search/', MarketplaceViews.search, name='search'),
+	
+    path('zktech/', views.zktech, name='zktech'),
+	
 ]
 
 if settings.DEBUG:
 	urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+	
+

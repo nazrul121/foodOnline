@@ -1,6 +1,6 @@
 @keyframes show-toast{
     0% {bottom: -100%}
-    40% {bottom: 110px}
+    20% {bottom: 100px}
     80% {bottom: 100px}
     100% {bottom: -100%}
 }
@@ -10,7 +10,8 @@
     bottom: 100%;
     right: 20px;
     animation-name: show-toast;
-    animation-duration: 8s;
+    animation-duration: 3s;
+    z-index: 99;
 }
 
 .border-3{

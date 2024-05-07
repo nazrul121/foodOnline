@@ -1,0 +1,49 @@
+{% extends "layouts/home.html" %}
+{% block title %} 404- page not found{% endblock title %}
+{% block contents %} 
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .error-container {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .error-illustration {
+            width: 300px;
+            margin-bottom: 40px;
+        }
+
+        .error-message {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .back-home-btn {
+            background-color: #ffc107;
+            color: #212529;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-home-btn:hover {
+            background-color: #ff9800;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+    </style>
+    <div class="container">
+        <div class="error-container pb-5">
+            <img src="https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7898.jpg" alt="404 Illustration" class="error-illustration">
+            <div class="error-message">Oops! Page not found.</div>
+            <a href="/" class="back-home-btn">Back to Home</a>
+        </div>
+    </div>
+{% endblock %}

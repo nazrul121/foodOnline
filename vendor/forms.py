@@ -1,6 +1,6 @@
 from django import forms 
 from .models import Vendor
-
+from accounts.validators import allow_only_images_validator
 
 
 
@@ -23,13 +23,13 @@ class RequiredFieldsMixin:
 
 
 
-class VendorForm(RequiredFieldsMixin, forms.ModelForm):
-    
+class VendorForm(forms.ModelForm):
+    vendor_license = forms.FileField(widget=forms.FileInput(attrs={'class': 'btn btn-info'}), validators=[allow_only_images_validator])
     class Meta:
         model = Vendor
         fields = ['vendor_name', 'vendor_license']
         widgets = {
-            'vendor_license': forms.FileInput(attrs={'class': 'form-control' }),
+            'vendor_license': forms.FileInput(attrs={'class': 'btn btn-info w-100 pb-2' }),
         }
     
     #add require attr at input field

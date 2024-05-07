@@ -1,0 +1,136 @@
+{% extends "layouts/home.html" %}
+
+{% block title %}  Register Now {% endblock title %}
+
+{% block contents %} 
+<div class="page-section nopadding cs-nomargin" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="user-dashboard loader-holder">
+                    <div class="user-holder">
+                <h4 class="text-center" style="margin-bottom: 0;">WELCOME TO FOODONLINE</h4>
+                <p class="text-center">Please fill this form to Register as a <b>Vendor</b></p>
+                <hr>
+                <div id="restaurant-sets-holder">
+                    <form class="form-fields-set foodbakery-dev-restaurant-form" method="post" enctype="multipart/form-data"> {% csrf_token %}
+                        <ul class="register-add-restaurant-tab-container restaurant-information-tab-container">
+                            <li>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        {% if form.non_field_errors %}
+                                            <ul class="errorlist w-100 text-center">
+                                                <li class="bg-light p-2 text-danger border border-danger">{{form.non_field_errors|safe}}</li>
+                                            </ul>
+                                        {% endif %}
+                                        <div class="row">
+                                            <ul>
+                                                <li>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>First name</label> {{ form.first_name }}
+                                                            {% if form.first_name.errors %}
+                                                                <span class="text-danger">{{ form.first_name.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>Last name</label>  {{ form.last_name }}
+                                                            {% if form.last_name.errors %}
+                                                                <span class="text-danger">{{ form.last_name.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>Organization Name</label>{{v_form.vendor_name}}
+                                                            {% if v_form.vendor_name.errors %}
+                                                                <span class="text-danger">{{ v_form.vendor_name.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>{{v_form.vendor_license.label}}</label>{{v_form.vendor_license}}
+                                                            {% if v_form.vendor_license.errors %}
+                                                                <span class="text-danger">{{ v_form.vendor_license.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    
+                                          
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>{{ form.phone_number.label }}</label> {{ form.phone_number }}
+                                                            {% if form.phone_number.errors %}
+                                                                <span class="text-danger">{{ form.phone_number.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>Email Address</label>{{ form.email }}
+                                                            {% if form.email.errors %}
+                                                                <span class="text-danger">{{ form.email.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>Username</label>{{ form.username }}
+                                                            {% if form.username.errors %}
+                                                                <span class="text-danger">{{ form.username.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                
+                                                <li>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>Password</label>  {{form.password}}
+                                                            {% if form.password.errors %}
+                                                                <span class="text-danger">{{ form.password.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="field-holder">
+                                                            <label>Confirm Password</label>{{form.confirm_password}}
+                                                            {% if form.confirm_password.errors %}
+                                                                <span class="text-danger">{{ form.confirm_password.errors.0|safe }}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                {% include "includes/message-alert.html" %}
+
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-holder">
+                                            <div class="payment-holder">
+                                                <input type="submit" value="Submit" id="btn-next-restaurant-information" class="bgcolor">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </form>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

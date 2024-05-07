@@ -1,0 +1,37 @@
+{% extends "layouts/home.html" %}
+
+{% block contents %} 
+
+	
+
+	<div class="container pb-5 pt-5 bg-white"> 
+		<h2>Attendance data from device...</h2> <hr>
+		{% for attendance in attendances %}
+			{% comment %} {{ attendance }} <br> {% endcomment %}
+                User ID: {{ attendance.user_id }}
+                Date: {{ attendance.timestamp }}<br>
+            
+        {% endfor %}
+
+		{% comment %} <div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+				<div class="categories-holder modern">
+					{% for user in attendance_data %}
+					<div class="col-lg-2 col-sm-4 col-xs-6">
+						<div class="categories-list">
+							<a href="#">
+								<i class="icon-toaster text-color"></i>
+								<h6 style="color:#000000 !important;"><span>BreakFast</span></h6>
+							</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div> {% endcomment %}
+		
+	</div>
+	{% include "templates/frontend/includes/message-alert.html" %}
+
+{% endblock %}
+			
